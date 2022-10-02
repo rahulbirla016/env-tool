@@ -1,0 +1,177 @@
+{% extends "mysite/base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+<!-- 
+<head>
+    <meta charset="utf-8" />
+    <title>Gamedev Canvas Workshop</title>
+    
+</head> -->
+
+<!-- <body> -->
+  <h1 style="margin-left:25px;">Game</h1>
+
+  <button onclick="startGame()" class='game-btn btn-primary'>Start</button>
+  <button onclick="stopGame()" class='game-btn btn-primary'>Pause</button> 
+  <button onclick="moveUp()" class='game-btn btn-primary'>Up</button>
+  <button onclick="moveDown()" class='game-btn btn-primary'>Down</button>
+
+  <canvas id="canvas"></canvas>
+
+ 
+
+<script>
+
+    // window.addEventListener('Arrowdown', function (e) {
+    //     //document.querySelector('p').innerHTML = `You pressed ${e.key}`;
+    //     changeColour();
+    // }, false);
+
+    function showEnvData(data) {
+      console.log(data)
+      events_array = data.data;
+      all_events = [];
+
+      for (var i = 0; i <= events_array.length - 1; i++) {
+        console.log(events_array[i]);
+        title = events_array[i].fields.title;
+        all_events.push(title)
+      }
+
+      console.log(all_events)
+
+
+    }
+
+    fetch('https://api.reliefweb.int/v1/reports?appname=apidoc&limit=2')
+      .then((response) => response.json())
+      .then((data) => showEnvData(data));
+
+    
+
+    function startGame() {
+        myGameArea.start();
+    }
+
+    function stopGame() {
+        clearInterval(myGameArea.interval);
+    }
+  
+    var myGameArea = {
+        canvas : document.getElementById("canvas"),
+        start : function() {
+          // clear previous intervals
+          if (this.interval){
+            clearInterval(this.interval);
+          }
+          this.canvas.width = 480;
+          this.canvas.height = 270;
+          this.context = this.canvas.getContext("2d");
+          //document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+          //this.interval = setInterval(draw, 10);
+          draw();
+          
+        }
+    }
+
+    // intialization
+    var x = myGameArea.canvas.width/2;
+    var y = myGameArea.canvas.height-30;
+    var dx = 2;
+    var dy = -2;
+    var ballRadius = 10;
+    var colour = "#0095DD";
+    
+    function drawBall() {
+      myGameArea.context.beginPath();
+      myGameArea.context.arc(x, y, ballRadius, 0, Math.PI*2);
+      myGameArea.context.fillStyle = colour;
+      myGameArea.context.fill();
+      myGameArea.context.closePath();
+   }
+
+    function changeColour(){
+      colours = []
+      if (colour == "#0095DD"){
+          colour = "#633ac5";
+      }else {
+          colour = "#0095DD";
+      }
+    }
+
+
+  
+    function draw() {
+      // drawing code
+      myGameArea.context.clearRect(0, 0, myGameArea.canvas.width, myGameArea.canvas.height);
+   
+      drawBall();
+
+      if(x + dx > myGameArea.canvas.width-ballRadius || x + dx < ballRadius) {
+          dx = -dx;
+          changeColour();
+        }
+
+      if(y + dy > myGameArea.canvas.height-ballRadius || y + dy < ballRadius) {
+          dy = -dy;
+          changeColour();
+      }
+
+      x += dx;
+      y += dy;
+    }
+
+    function moveUp() {
+      // drawing code
+      myGameArea.context.clearRect(0, 0, myGameArea.canvas.width, myGameArea.canvas.height);
+   
+      drawBall();
+
+      dy = -5;
+      dx = 0;
+
+
+      if((x + dx > myGameArea.canvas.width-ballRadius) || (x + dx < ballRadius)) {
+          dx = -dx;
+          //changeColour();
+        }
+
+      if((y + dy > myGameArea.canvas.height-ballRadius) || (y + dy < ballRadius)) {
+          dy = 0;
+          //changeColour();
+      }
+
+      x += dx;
+      y += dy;
+    }
+
+    function moveDown() {
+      // drawing code
+      myGameArea.context.clearRect(0, 0, myGameArea.canvas.width, myGameArea.canvas.height);
+   
+      drawBall();
+
+      dy = 5;
+      dx = 0;
+
+
+      if((x + dx > myGameArea.canvas.width-ballRadius) || (x + dx < ballRadius)) {
+          dx = -dx;
+          //changeColour();
+        }
+
+      if((y + dy > myGameArea.canvas.height-ballRadius) || (y + dy < ballRadius)) {
+          dy = 0;
+          //changeColour();
+      }
+
+      x += dx;
+      y += dy;
+    }
+
+</script>
+
+{% endblock %}

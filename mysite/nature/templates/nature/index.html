@@ -1,0 +1,94 @@
+{% extends "mysite/base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+    <main class="container">
+      <div class="bg-light p-5 rounded">
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="p-5 mb-4 bg-light rounded-3">
+              <div class="container-fluid py-5">
+                <h1 class="display-5 fw-bold">Help the Environment</h1>
+
+                 <p class="col-md-8 fs-4">There are many ways to help the earth. You can make a difference.</p>
+                 <br>
+
+                 <p>The Paris 1.5 degrees C Agreement was made by countries to help battle the effects of climate change.
+                 Countries, as part of the agreement, aim to be net-zero in their carbon footprint by the year 2050. This is
+                 to reduce the earth warming by more than 1.5 degrees Celsius. Scientists say that a 2 degrees celsius increase will
+                 lead to irreparable issues on earth, so the agreement aims to get all the countries in the world to aim for net-zero 
+                 emissions to avoid these catastrophic issues.</p>
+
+
+                 <img src="{% static 'nature/img/MtFuji.jpg' %}" alt="Mount Fuji" width="1000" height="600">
+                 <br>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row align-items-md-stretch">
+          <div class="col-md-6">
+            <div class="h-100 p-5 text-white bg-dark rounded-3">
+              <p class="lead">Take small steps in your life. Each step matters.</p>
+
+              <h2> Ways to help</h2>
+              <ol>
+                <li>Plant a tree</li>
+                <li>Reduce, Reuse, Recycle</li>
+                <li>Learn more about environmental issues</li>
+                <li>Spread the word!</li>
+              </ol>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="h-100 p-5 bg-light border rounded-3">
+              <h2>Organizations that are making a change</h2>
+              <ul>
+                <li><a href="https://davidsuzuki.org/" target="_blank">David Suzuki Foundation</a></li>
+                <li><a href="https://fridaysforfuture.org/" target="_blank">Fridays For Future</a></li>
+              </ul>
+              
+            </div>
+             
+          </div>
+
+        </div>
+
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="p-5 mb-4 bg-light rounded-3">
+              <div class="container-fluid py-5">
+
+                <h2> Information on the Paris Agreement</h2>
+
+                <p> Countries are aiming to reduce carbon emissions to net-zero, by the year 2050. 
+                    Immediate action is needed. Here is some more information.</p>
+                <ul>
+                  <li><a href="https://unfccc.int/process-and-meetings/the-paris-agreement/the-paris-agreement" 
+                    target="_blank">Info on Paris Agreement</a></li>
+                </ul>
+               
+                <br>
+               <!--  <button class="btn btn-primary" role="button">Hello</button> -->
+
+              </div>
+            </div>
+          </div>
+        </div>
+         
+
+      </div>
+
+      <footer class="pt-3 mt-4 text-muted border-top">
+        &copy; 2022 Rahul Birla
+      </footer>
+    </main>
+   
+{% endblock %}
