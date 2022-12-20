@@ -21,10 +21,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-$kzokzkn6n!o1*nk94x82d@a1h)byhg%6krvpu_cc-2%4pa(rv'
+
+#SECRET_KEY = 'django-insecure-$kzokzkn6n!o1*nk94x82d@a1h)byhg%6krvpu_cc-2%4pa(rv'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -76,16 +79,36 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+DB_PASS = os.environ.get('PGPASSWORD')
+DB_NAME = os.environ.get('PGDATABASE')
+DB_HOST = os.environ.get('PGHOST')
+DB_PORT = os.environ.get('PGPORT')
+DB_USER = os.environ.get('PGUSER')
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'site_database',
-        'USER': 'postgres',
-        'PASSWORD': '2X8:4dmFF(dj*?-K',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'NAME': DB_NAME,
+        'USER': DB_USER,
+        'PASSWORD': DB_PASS,
+        'HOST': DB_HOST,
+        'PORT': DB_PORT,
     }
 }
+
+print("----------------------------------------")
+print(DATABASES)
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'site_database',
+#         'USER': 'postgres',
+#         'PASSWORD': '2X8:4dmFF(dj*?-K',
+#         'HOST': '127.0.0.1',
+#         'PORT': '5432',
+#     }
+# }
 
 
 # Password validation
