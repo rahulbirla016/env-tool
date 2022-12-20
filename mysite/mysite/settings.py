@@ -96,8 +96,6 @@ DATABASES = {
     }
 }
 
-print("----------------------------------------")
-print(DATABASES)
 
 # DATABASES = {
 #     'default': {
