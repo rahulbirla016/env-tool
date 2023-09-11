@@ -1,5 +1,5 @@
 # env-tool
-Tool to help with Environment and Awarness
+Tool to help with Environment and Awarness. Track disaster events around the world. Links to other organizations that are making efforts.
 
 Installation
 ---
