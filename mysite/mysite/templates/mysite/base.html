@@ -1,15 +1,14 @@
 {% load static %}
 <html>
 <head>
-    <!-- <title>{% block title %}{% endblock %}</title> -->
-    <title>Helping the Environment</title>
-    
-   
+  
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
+
+    <title>Helping the Environment</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/navbar-static/">
 
@@ -32,14 +31,50 @@
       }
     </style>
 
+    <script>
+      function showEnvData(data) {
+        console.log(data)
+        events_array = data.data;
+        all_events = [];
+
+        for (var i = 0; i <= (events_array.length - 1); i++) {
+          console.log(events_array[i]);
+          title = events_array[i].fields.name;
+          all_events.push(title)
+        }
+
+        console.log(all_events)
+
+        events_text =  all_events[0] 
+                      + ", " + all_events[1] 
+                      + ", " + all_events[2] 
+                      + ", " + all_events[3]
+                      + ", " + all_events[4]
+        document.getElementById("disaster_events_1").innerHTML = all_events[0];
+        document.getElementById("disaster_events_2").innerHTML = all_events[1];
+        document.getElementById("disaster_events_3").innerHTML = all_events[2];
+        document.getElementById("disaster_events_4").innerHTML = all_events[3];
+        document.getElementById("disaster_events_5").innerHTML = all_events[4];
+
+        // API for later: https://api.reliefweb.int/v1/disasters/?appname=apidoc&limit=5
+        // 'https://api.reliefweb.int/v1/reports?appname=apidoc&limit=5'
+      }
+      fetch('https://api.reliefweb.int/v1/disasters/?appname=apidoc&limit=5&preset=latest')
+      .then((response) => response.json())
+      .then((data) => showEnvData(data));
+    </script>
+
     <!-- Custom styles for this template -->
+    <link href="carousel.css" rel="stylesheet">
     <link href="{% static 'nature/css/navbar-top.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'nature/css/game_style.css' %}" rel="stylesheet" type="text/css"></link>
+    <link href="{% static 'nature/css/common_design.css' %}" rel="stylesheet" type="text/css"></link>
   </head>
 
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+    <header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4 small-bottom">
       <div class="container-fluid">
         <a class="navbar-brand" href="/">Helping the Environment</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,10 +103,16 @@
         </div>
       </div>
     </nav>
+    </header>
 
+    
+
+    
 
     <!-- <img src="{% static 'images/sitelogo.png' %}" alt="Logo"> -->
     {% block content %}{% endblock %}
+
+
 </body>
 
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" 
