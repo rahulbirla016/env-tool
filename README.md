@@ -2,7 +2,7 @@
 Tool to help with Environment and Awareness. Track disaster events around the world. Links to other organizations that are making efforts.
 
 ## Access
-Production (mains site) URL: https://env-tool-production.up.railway.app/ 
+Production (main site) URL: https://env-tool-production.up.railway.app/ 
 
 ## Tech Stack
 - Django Python Web Framework, Javascript, HTML, CSS, PostgreSQL DBMS
