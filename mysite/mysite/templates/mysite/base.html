@@ -1,6 +1,6 @@
 {% load static %}
 <html>
-<head>
+  <head>
   
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,86 +8,64 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
 
-    <title>Helping the Environment</title>
+    <title>Climate Solutions</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/navbar-static/">
+    <!-- Bootstrap + CSS -->
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/navbar-static/">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 
     <!-- Bootstrap core CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"  crossorigin="anonymous">
 
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-
-    <script>
-      function showEnvData(data) {
-        console.log(data)
-        events_array = data.data;
-        all_events = [];
-
-        for (var i = 0; i <= (events_array.length - 1); i++) {
-          console.log(events_array[i]);
-          title = events_array[i].fields.name;
-          all_events.push(title)
-        }
-
-        console.log(all_events)
-
-        events_text =  all_events[0] 
-                      + ", " + all_events[1] 
-                      + ", " + all_events[2] 
-                      + ", " + all_events[3]
-                      + ", " + all_events[4]
-        document.getElementById("disaster_events_1").innerHTML = all_events[0];
-        document.getElementById("disaster_events_2").innerHTML = all_events[1];
-        document.getElementById("disaster_events_3").innerHTML = all_events[2];
-        document.getElementById("disaster_events_4").innerHTML = all_events[3];
-        document.getElementById("disaster_events_5").innerHTML = all_events[4];
-
-        // API for later: https://api.reliefweb.int/v1/disasters/?appname=apidoc&limit=5
-        // 'https://api.reliefweb.int/v1/reports?appname=apidoc&limit=5'
-      }
-      fetch('https://api.reliefweb.int/v1/disasters/?appname=apidoc&limit=5&preset=latest')
-      .then((response) => response.json())
-      .then((data) => showEnvData(data));
-    </script>
-
-    <!-- Custom styles for this template -->
-    <link href="carousel.css" rel="stylesheet">
+    <!-- Custom CSS/styles for this template -->
+    <link href="{% static 'nature/css/carousel.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'nature/css/navbar-top.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'nature/css/game_style.css' %}" rel="stylesheet" type="text/css"></link>
     <link href="{% static 'nature/css/common_design.css' %}" rel="stylesheet" type="text/css"></link>
+    <link href="{% static 'nature/css/custom-2.css' %}" rel="stylesheet" type="text/css"></link>
+
+     <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- Javascript  -->
+    <script src="{% static 'nature/src/base.js' %}"></script>
+
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+             crossorigin="anonymous"> 
+    </script>
+
+    <!-- React.js -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- Other Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.2/dist/chart.umd.js" 
+            integrity="sha384-eI7PSr3L1XLISH8JdDII5YN/njoSsxfbrkCTnJrzXt+ENP5MOVBxD+l6sEG4zoLp" 
+            crossorigin="anonymous"></script>
+
   </head>
 
-
-<body>
-    <header>
+  <body>
+    <header class="moved-up">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4 small-bottom">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/">Helping the Environment</a>
+        <a class="navbar-brand" href="/">Finding Solutions</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav me-auto mb-2 mb-md-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/">Home</a>
+              <a id="nav-home" class="nav-link active" aria-current="page" href="/">Home</a>
             </li>
-            <!-- <li class="nav-item">
-              <a class="nav-link" href="./second_html.html">Contact</a>
-            </li> -->
+            {% comment %}
+            <li class="nav-item">
+              <a id="nav-2" class="nav-link" href="{% url 'nature:analytics' %}">Analytics</a>
+            </li>
+            {% endcomment %}
             <!-- <li class="nav-item">
               <a class="nav-link" href="game">Interactive</a>
             </li> -->
@@ -104,20 +82,15 @@
       </div>
     </nav>
     </header>
-
     
-
-    
-
     <!-- <img src="{% static 'images/sitelogo.png' %}" alt="Logo"> -->
     {% block content %}{% endblock %}
 
+    <footer class="pt-3 mt-4 text-muted border-top left-padding-footer">
+      &copy; <span id="current_year"></span> Rahul Birla
+    </footer>
 
-</body>
-
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" 
-      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" 
-      crossorigin="anonymous"> 
-      </script>
-
+    <script src="{% static 'nature/src/climate-dashboard.js' %}"></script>
+    
+  </body>
 </html>

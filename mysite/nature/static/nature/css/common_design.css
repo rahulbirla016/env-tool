@@ -1,3 +1,39 @@
 .link-color {
 	color: #a0a0a1 ;
 }
+
+.link-color-blue {
+	color: #303034;
+}
+
+.link-color-grey {
+	color: #e7e7f1;
+}
+
+.link-color-black {
+	color: #000000;
+}
+
+.dark-colour {
+	color: black;
+}
+
+.special-link {
+	color: #242121;
+}
+
+.left-padding-footer {
+	padding-left: 60px !important;
+}
+
+.header-padding-top {
+	padding-top:25px;
+}
+
+.light-image {
+	opacity: 0.90;
+}
+
+.image-mount-fuji-light {
+	opacity: 0.99;
+}
