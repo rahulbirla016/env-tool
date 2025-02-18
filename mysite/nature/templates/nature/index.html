@@ -4,7 +4,7 @@
 
 {% block content %}
     <main>
-      <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -13,8 +13,10 @@
 
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <!-- <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg> -->
-            <img src="{% static 'nature/img/tree-image-compressed.jpg' %}" alt="wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass" width="1000" height="600" type="image/jpeg" class="responsive" 
+            <!-- <svg class="bd-placeholder-img" width="100%" height="100%" 
+             xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"></svg> -->
+            <img src="{% static 'nature/img/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass.jpg' %}" alt="wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass" width="1000" height="600" type="image/jpeg" class="responsive" 
             style="opacity: 87%;">
 
 
@@ -75,11 +77,11 @@
                        <p class=" fs-4">There are many ways to help the earth, in a sustainable manner. You can make a difference.</p>
                        <br>
 
-                       <p>The Paris 1.5 degrees C Agreement was made by countries to help battle the effects of climate change.
+                       <p>The Paris Agreement was made by countries to help battle the effects of climate change.
                        Countries, as part of the agreement, aim to be net-zero in their carbon footprint by the year 2050. This is
                        to reduce the earth warming by more than 1.5 degrees Celsius. Scientists say that a 2 degrees celsius increase will
                        lead to irreparable issues on earth, so the agreement aims to get all the countries in the world to aim for net-zero 
-                       emissions to avoid these catastrophic issues. The aim of this site is to provide informatio on environmental issues, while also presenting information about the economy, so that sustainable solutions can be found, that work for everyone, in the best way forward.</p>
+                       emissions to avoid these catastrophic issues. The aim of this site is to provide information on environmental issues, while also presenting information about the economy, so that sustainable solutions can be found, that work for everyone, in the best way forward.</p>
 
 
                        <img src="{% static 'nature/img/MtFuji.jpg' %}" alt="Mount Fuji" width="1000" height="600" type="image/jpeg" class="responsive image-mount-fuji-light">
@@ -147,7 +149,7 @@
             <div class="col-md-12">
               <h3>Current Disasters Around the World</h3>
               <br>
-              <p>Here are some issues happening around the world.</p>
+              <p>Here are some issues happening around the world:</p>
               <ul>
                 <li id="disaster_events_1"></li>
                 <li id="disaster_events_2"></li>
