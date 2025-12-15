@@ -1,3 +1,3 @@
 #!/bin/bash
 
-python manage.py migrate && gunicorn mysite.wsgi
+#python manage.py migrate && gunicorn mysite.wsgi
