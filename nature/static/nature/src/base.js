@@ -49,7 +49,7 @@
 
 
       // Climate API
-      fetch('https://api.reliefweb.int/v1/disasters/?appname=apidoc&limit=5&preset=latest')
+      fetch('https://api.reliefweb.int/v1/disasters/?appname=Rahul-GeneralUsage-2938502&limit=5&preset=latest')
       .then((response) => response.json())
       .then((data) => showEnvData(data));
 
